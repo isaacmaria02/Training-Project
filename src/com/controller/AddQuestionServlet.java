@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -46,7 +47,15 @@ public class AddQuestionServlet extends HttpServlet {
 
 		
 		List<String> ans = new ArrayList<>();
-		ans = Arrays.asList(request.getParameterValues("ans"));
+		
+		try {
+			ans = Arrays.asList(request.getParameterValues("ans"));
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			RequestDispatcher rd = request.getRequestDispatcher("ErrorPage.jsp");
+			request.setAttribute("errm", e);
+			rd.forward(request, response);
+		}
 		
 
 		
