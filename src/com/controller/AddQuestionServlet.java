@@ -48,14 +48,8 @@ public class AddQuestionServlet extends HttpServlet {
 		
 		List<String> ans = new ArrayList<>();
 		
-		try {
 			ans = Arrays.asList(request.getParameterValues("ans"));
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			RequestDispatcher rd = request.getRequestDispatcher("ErrorPage.jsp");
-			request.setAttribute("errm", e);
-			rd.forward(request, response);
-		}
+		
 		
 
 		

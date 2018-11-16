@@ -28,6 +28,7 @@ public class Jdbc {
 			e.printStackTrace();
 		}
 		return con;
+		
 	}
 	public int saveData(List<Registration> lst){
 		Registration r =  lst.get(0);
